@@ -30,7 +30,7 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 
     saveBtn = document.createElement('button');
-    saveBtn.innerText = 'Save';
+    saveBtn.textContent = 'Save';
     saveBtn.addEventListener('click', function() {
         localStorage.notes = JSON.stringify(list.map(function(item) {
             return {
