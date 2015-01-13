@@ -26,11 +26,11 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 
     saveBtn = document.createElement('button');
-    saveBtn.innerText = 'Save';
+    saveBtn.textContent = 'Save';
     saveBtn.addEventListener('click', function() {
         var request = new XMLHttpRequest();
         request.addEventListener('load', function() {
-            saveBtn.innerText = 'Save';
+            saveBtn.textContent = 'Save';
             saveBtn.disabled = false;
         });
         request.open('POST', 'http://localhost:1337/');
@@ -39,13 +39,13 @@ document.addEventListener('DOMContentLoaded', function() {
                 text: item.el.querySelector('input').value
             };
         })));
-        saveBtn.innerText = 'Saving...';
+        saveBtn.textContent = 'Saving...';
         saveBtn.disabled = true;
     });
     newBtn.parentNode.appendChild(saveBtn);
 
     loadBtn = document.createElement('button');
-    loadBtn.innerText = 'Load';
+    loadBtn.textContent = 'Load';
     loadBtn.addEventListener('click', load);
     newBtn.parentNode.appendChild(loadBtn);
 
@@ -54,7 +54,7 @@ document.addEventListener('DOMContentLoaded', function() {
     function load() {
         var request = new XMLHttpRequest();
         request.addEventListener('load', function() {
-            loadBtn.innerText = 'Load';
+            loadBtn.textContent = 'Load';
             loadBtn.disabled = false;
             list = JSON.parse(this.responseText);
 
@@ -63,7 +63,7 @@ document.addEventListener('DOMContentLoaded', function() {
         });
         request.open('GET', 'http://localhost:1337/');
         request.send();
-        loadBtn.innerText = 'Loading...';
+        loadBtn.textContent = 'Loading...';
         loadBtn.disabled = true;
     }
 
