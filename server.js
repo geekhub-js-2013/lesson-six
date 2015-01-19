@@ -57,7 +57,8 @@ function cors(req, res, next) {
 
     // intercept OPTIONS method
     if (oneof && req.method == 'OPTIONS') {
-        res.send(200);
+        res.writeHead(200);
+        res.end();
     }
     else {
         next();
